@@ -4,12 +4,12 @@ import ProductsList from './ProductList';
 
 const Finder = () => {
 
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState('Iphone');
 
     return (
         <>
             <FinderHeader setSearch={ setSearch } />
-            <div className="base__container">
+            <div className="base__container base__main-box">
                 <ProductsList search={ search } />
             </div>
         </>
