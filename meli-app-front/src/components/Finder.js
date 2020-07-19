@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FinderHeader from './FinderHeader'
 
 const Finder = () => {
+
+    const [search, setSearch] = useState('esoo');
+
+    console.log(search, '---');
+
     return (
         <>
-            <FinderHeader />
+            <FinderHeader setSearch={ setSearch } />
         </>
     )
 }
