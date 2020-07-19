@@ -2,6 +2,7 @@
 
 # dependencies
 /meli-app-front/node_modules
+/meli-app-back/node_modules
 /meli-app-front/.pnp
 .pnp.js
 
