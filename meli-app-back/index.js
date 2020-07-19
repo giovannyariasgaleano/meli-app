@@ -1,6 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
+
+// CORS
+app.use(cors());
 
 // Routes
 app.use('/items', require('./routes/items'));

@@ -2,7 +2,7 @@ const {response} = require('express');
 
 const getItems = (req, res = response) => {
 
-    const mockedResponse = {
+    const mockedResponse = {ok:true, data: {
         author: {
         name: "Giovanny",
         lastname: "Arias" },
@@ -40,7 +40,7 @@ const getItems = (req, res = response) => {
                 },
                 picture: "http://mla-s1-p.mlstatic.com/885508-MLA32445302787_102019-I.jpg", condition: "New", free_shipping: true
             }
-        ]};
+        ]}};
 
     res.json(mockedResponse);
 }
