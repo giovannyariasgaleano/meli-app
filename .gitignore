@@ -2,15 +2,18 @@
 
 # dependencies
 /meli-app-front/node_modules
+/meli-app-front-old/node_modules
 /meli-app-back/node_modules
 /meli-app-front/.pnp
 .pnp.js
 
 # testing
 /meli-app-front/coverage
+/meli-app-front-old/coverage
 
 # production
 /meli-app-front/build
+/meli-app-front-old/build
 
 # misc
 .DS_Store
