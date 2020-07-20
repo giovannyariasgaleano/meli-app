@@ -1,27 +1,17 @@
 import Head from 'next/head'
+import Layout, { siteTitle } from '../components/Layout'
 
 export default function Home() {
 
-  console.log(props);
-
-  /*const params = new URLSearchParams('?q');
-  console.log(params)*/
-
   return (
-    <div className="container">
-
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
       
 
-
-      <Head>
-        <title>Meli App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <div>
-        Pagina de search
-      </div>
-
-    </div>
+      pruebaaa
+      
+    </Layout>
   )
 }
