@@ -3,6 +3,10 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    margin-bottom: 15px;
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 .product__picture {
     background-size: cover;
