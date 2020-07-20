@@ -1,0 +1,42 @@
+html, body {
+    background-color: $primary-background-color;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 0;
+}
+input {
+    border: 0;
+    padding: 10px 5px 10px 15px ;
+    &:focus {
+        outline: none;
+    }
+}
+button {
+    cursor: pointer;
+    border: 0;
+    padding: 0 10px;
+    &:focus {
+        outline: none;
+    }
+}
+
+.base__container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+.base__input-group{
+    width: 100%;
+    display: flex;
+}
+.base__input-group button {
+    border: 0;
+    padding: 0 10px;
+}
+.base__all-width {
+    width: 100%;
+}
+.base__main-box {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+}
