@@ -10,12 +10,18 @@ const getItems = (req, res = response) => {
 
     axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${ encodeURI(req.query.q) }&limit=4`)
     .then((response) => {
+
+        const categories = response.data.filters
+            .find( filter => filter.id = 'category')
+            .values.map( category => category)[0]
+            .path_from_root.map( path => path.name );
+
         res.json({
             ok: true,
             data: {
                 author,
-                categories: ['Categoria 1', 'Categoria 2', 'Categoria 3', 'Categoria 4'],
-                items: response.data.results.map((product) => (
+                categories,
+                items: response.data.results.map( product => (
                     {
                         id: product.id,
                         title: product.title,
@@ -40,7 +46,7 @@ const getItems = (req, res = response) => {
 const getItemById = (req, res = response) => {
 
     axios.get(`https://api.mercadolibre.com/items/${ req.params.id }`)
-    .then((response) => {
+    .then( response => {
 
         res.json({
             ok: true,
@@ -63,7 +69,7 @@ const getItemById = (req, res = response) => {
             }   
         });
     })
-    .catch((error) => {
+    .catch(error => {
         return res.json({ok:false, data:{}});
     })
 }
