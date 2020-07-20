@@ -1,48 +1,40 @@
 const {response} = require('express');
+const axios = require('axios').default;
+
+const author = {
+    name: 'Giovanny',
+    lastname: "Arias",
+}
 
 const getItems = (req, res = response) => {
 
-    const mockedResponse = {ok:true, data: {
-        author: {
-        name: "Giovanny",
-        lastname: "Arias" },
-        categories: ["Category 1", "Category 2", "Category 3"], 
-        items: [
-            {
-                id: "MLA867050560", 
-                title: "iPhone 11 64 Gb Negro 4 Gb Ram", 
-                price: {
-                    currency: "ARS", "amount": 164819, "decimals": 0
-                },
-                picture: "http://mla-s1-p.mlstatic.com/885508-MLA32445302787_102019-I.jpg", condition: "New", free_shipping: true
-            },
-            {
-                id: "MLA867050561", 
-                title: "iPhone 11 64 Gb Negro 4 Gb Ram", 
-                price: {
-                    currency: "ARS", "amount": 164819, "decimals": 0
-                },
-                picture: "http://mla-s1-p.mlstatic.com/885508-MLA32445302787_102019-I.jpg", condition: "New", free_shipping: true
-            },
-            {
-                id: "MLA867050562", 
-                title: "iPhone 11 64 Gb Negro 4 Gb Ram", 
-                price: {
-                    currency: "ARS", "amount": 164819, "decimals": 0
-                },
-                picture: "http://mla-s1-p.mlstatic.com/885508-MLA32445302787_102019-I.jpg", condition: "New", free_shipping: false
-            },
-            {
-                id: "MLA867050563", 
-                title: "iPhone 11 64 Gb Negro 4 Gb Ram", 
-                price: {
-                    currency: "ARS", "amount": 164819, "decimals": 0
-                },
-                picture: "http://mla-s1-p.mlstatic.com/885508-MLA32445302787_102019-I.jpg", condition: "New", free_shipping: true
-            }
-        ]}};
-
-    res.json(mockedResponse);
+    axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${ encodeURI(req.query.q) }&limit=4`)
+    .then((response) => {
+        res.json({
+            ok: true,
+            data: {
+                author,
+                categories: [],
+                items: response.data.results.map((product) => (
+                    {
+                        id: product.id,
+                        title: product.title,
+                        price: {
+                            currency: product.currency_id, 
+                            amount: product.price, 
+                            decimals: 0
+                        },
+                        picture: product.thumbnail,
+                        condition: product.condition,
+                        free_shipping: product.shipping.free_shipping
+                    }
+                ))
+            }   
+        });
+    })
+    .catch((error) => {
+        return res.json({ok:false, data:{}});
+    })
 }
 
 module.exports = {
