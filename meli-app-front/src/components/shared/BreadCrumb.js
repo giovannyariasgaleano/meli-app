@@ -7,10 +7,9 @@ const BreadCrumb = ({ items }) => {
             margin: '10px 0',
         },
         breadcrumbItem:{
-            padding: '0 5px',
+            paddingRight: '5px',
         },
         breadcrumbItemBold: {
-            padding: '0 5px',
             fontWeight: 'bold'
         }
     }
