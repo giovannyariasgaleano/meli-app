@@ -1,11 +1,14 @@
 .product__preview-box {
+    border-bottom: 1px solid $primary-background-color;
     cursor: pointer;
     display: flex;
-    width: 100%;
     justify-content: space-between;
     margin-bottom: 15px;
+    padding-bottom: 15px;
+    width: 100%;
     &:last-child {
         margin-bottom: 0;
+        border-bottom: none;
     }
 }
 .product__picture {

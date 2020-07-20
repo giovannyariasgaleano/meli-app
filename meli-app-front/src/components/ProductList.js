@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { getItems } from '../helpers/getItems';
 import ProductPreview from './ProductPreview';
 
-const ProductsList = ({ search }) => {
+const ProductsList = ({ search, setCategories }) => {
 
     const [ products, setProducts ] = useState({
         data: {},
@@ -17,10 +17,11 @@ const ProductsList = ({ search }) => {
                     setProducts({
                         data: products,
                         loading: false
-                    })
+                    });
+                    setCategories(products.categories);
                 });
         }
-    }, [search]);
+    }, [search, setCategories]);
 
     return (
         <div>

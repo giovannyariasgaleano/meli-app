@@ -14,7 +14,7 @@ const getItems = (req, res = response) => {
             ok: true,
             data: {
                 author,
-                categories: [],
+                categories: ['Categoria 1', 'Categoria 2', 'Categoria 3', 'Categoria 4'],
                 items: response.data.results.map((product) => (
                     {
                         id: product.id,
