@@ -1,10 +1,11 @@
 import { getProduct } from '../../lib/products'
+import Layout from '../../components/Layout'
 
 export default function ItemById({ postData }) {
   return (
-    <div>
+    <Layout>
       Página de detalle del producto  {JSON.stringify(postData)}
-    </div>
+    </Layout>
   )
 }
 

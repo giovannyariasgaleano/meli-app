@@ -36,7 +36,7 @@ const InputGroup = ({ setValue, icon, icon2x }) => {
                 value={ inputValue }
             />
             <button onClick={ action }>
-                <img src={ icon } srcSet={`${ icon2x } 2x`} alt="Buscar productos"></img>
+                <img src={ icon } srcSet={ icon2x } alt="Buscar productos"></img>
             </button>
         </form>
     )
