@@ -1,19 +1,21 @@
 import Layout from "../components/Layout"
 import ProductPreview from "../components/ProductPreview"
-import { getProducts } from "../lib/products" 
 import fetch from 'node-fetch'
 
 function Items({ products }) {
+
+  const productsList =  <div className="base__main-box">
+                          { products && products.map(product => 
+                              <ProductPreview key={ product.id } product={ product } /> 
+                          )}
+                        </div>;
+  
+  const searchNotFound = <div>Lo sentimos, no encontramos productos relacionados con tu busqueda</div>;
+
   return (
     <Layout>
       <div className="base__container">
-        <div className="base__main-box">
-          {  
-            products.map(product => 
-              <ProductPreview key={ product.id } product={ product } /> 
-            ) 
-          }
-        </div>
+        { products? productsList: searchNotFound } 
       </div>
     </Layout>
   )

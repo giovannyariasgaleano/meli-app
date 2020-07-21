@@ -6,10 +6,10 @@ import InputGroup from './shared/InputGroup';
 const Header = ({ setSearch }) => {
 
     const images = {
-        logo: '/images/Logo_ML.png',
-        logo2x: '/images/Logo_ML@2x.png.png 2x',
-        iconSearch: '/images/ic_Search.png',
-        iconSearch2x: '/images/ic_Search@2x.png.png 2x'
+        logo: '/images/logo_ml.png',
+        logo2x: '/images/logo_ml@2x.png 2x',
+        iconSearch: '/images/icons/ic_search.png',
+        iconSearch2x: '/images/icons/ic_search@2x.png 2x'
     }
 
     return (

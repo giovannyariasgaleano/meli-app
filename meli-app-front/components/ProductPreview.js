@@ -4,7 +4,7 @@ import NumberFormat from 'react-number-format'
 const ProductPreview = ({ product }) => {
 
     const styleImageProduct = { backgroundImage: `url(${product.picture})` }
-    const shippingButton = <img src='/images/ic_shipping.png' srcSet={'/images/ic_shipping@2x.png.png 2x'} alt="Buscar productos" />;
+    const shippingButton = <img src='/images/icons/ic_shipping.png' srcSet={'/images/icons/ic_shipping@2x.png 2x'} alt="Buscar productos" />;
 
     return (
         <div className='product__preview-box'>
