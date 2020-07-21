@@ -8,9 +8,9 @@ const ProductPreview = ({ product }) => {
 
     return (
         <div className='product__preview-box'>
-            <div>
+            <div className='product__info'>
                 <div style={ styleImageProduct } className='product__picture'></div>
-                <div className='product__info'>
+                <div>
                     <div className='product__price_box'>
                         <NumberFormat displayType={'text'} value={ product.price.amount } thousandSeparator={true} prefix={'$'} className='product__price' />
                         { product.free_shipping && shippingButton }
