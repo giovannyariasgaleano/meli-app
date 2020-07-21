@@ -1,9 +1,9 @@
 import React from 'react';
-import Finder from './components/Finder';
+import { AppRouter } from './routers/AppRouter';
 
 function MeliApp() {
   return (
-    <Finder />
+    <AppRouter />
   );
 }
 
