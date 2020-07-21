@@ -1,24 +1,50 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/meli-app-front/node_modules
+/meli-app-front-old/node_modules
 /meli-app-back/node_modules
-/meli-app-front/.pnp
+/meli-app-front-old/.pnp
 .pnp.js
+
+# testing
+/meli-app-front-old/coverage
+
+# production
+/meli-app-front-old/build
+
+# misc
+.DS_Store
+/meli-app-front-old/.env.local
+/meli-app-front-old/.env.development.local
+/meli-app-front-old/.env.test.local
+/meli-app-front-old/.env.production.local
+
+/meli-app-front-old/npm-debug.log*
+/meli-app-front-old/yarn-debug.log*
+/meli-app-front-old/yarn-error.log*
+
+
+# dependencies
+/meli-app-front/node_modules
+/meli-app-front/.pnp
 
 # testing
 /meli-app-front/coverage
 
+# next.js
+/meli-app-front/.next/
+/meli-app-front/out/
+
 # production
 /meli-app-front/build
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# debug
+/meli-app-front/npm-debug.log*
+/meli-app-front/yarn-debug.log*
+/meli-app-front/yarn-error.log*
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# local env files
+/meli-app-front/.env.local
+/meli-app-front/.env.development.local
+/meli-app-front/.env.test.local
+/meli-app-front/.env.production.local

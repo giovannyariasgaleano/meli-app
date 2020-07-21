@@ -1,0 +1,12 @@
+.finder__header {
+    background-color: $primary-color;
+}
+.finder__search-box{
+    align-items: center;
+    display: flex;
+    padding: 10px;
+}
+.finder__search-message {
+    color: darken($primary-background-color, 30%);
+    margin: 15px 0 0 82px;
+}
