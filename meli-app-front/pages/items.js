@@ -16,9 +16,7 @@ function Items({ products }) {
 
   return (
     <Layout>
-      <div className="base__container">
-        { products? productsList: searchNotFound } 
-      </div>
+      { products? productsList: searchNotFound } 
     </Layout>
   )
 }

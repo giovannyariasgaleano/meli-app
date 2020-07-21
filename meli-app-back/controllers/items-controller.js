@@ -58,7 +58,7 @@ const getItemById = (req, res = response) => {
                     price: {
                         currency: response.data.currency_id, 
                         amount: response.data.price, 
-                        decimals: 0,
+                        decimals: response.initial_quantity,
                     },
                     picture: response.data.pictures[0].url, 
                     condition: response.data.condition, 

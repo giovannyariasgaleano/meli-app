@@ -16,9 +16,11 @@ export default function Layout({ children }) {
   return (
     <div>
       <Header setSearch={ setSearch } />
-      <main> 
-        { children }
-      </main>
+      <div className="base__container">
+        <main> 
+          { children }
+        </main>
+      </div>
     </div>
   )
 

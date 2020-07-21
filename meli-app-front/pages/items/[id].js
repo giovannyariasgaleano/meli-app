@@ -1,35 +1,28 @@
 import { getProduct } from '../../lib/products'
 import Layout from '../../components/Layout'
+import ProductDetail from '../../components/ProductDetail';
 
-export default function ItemById({ postData }) {
+export default function ItemById({ product }) {
   return (
     <Layout>
-      Página de detalle del producto  {JSON.stringify(postData)}
+      {product && <ProductDetail product={ product } />}
     </Layout>
   )
 }
 
 export async function getStaticPaths() {
-
-
-  const paths = [
-    { params: { id: 'MLA625814200' }},
-    { params: { id: 'MLA625814201' }},
-    { params: { id: 'MLA625814202' }},
-  ]
+  const paths = []
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 
 export async function getStaticProps({ params }) {
-  
-  const postData = await getProduct(params.id)
-
+  const { item } = await getProduct(params.id)
   return {
     props: {
-      postData
+      product: item
     }
   }
 }
