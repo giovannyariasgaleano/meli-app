@@ -1,17 +1,8 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/Layout'
+import Layout from '../components/Layout'
 
-export default function Home() {
-
+export default function Index() {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      
-
-      pruebaaa
-      
+    <Layout>
     </Layout>
   )
 }

@@ -1,25 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './Header'
-import Head from 'next/head'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 
+export default function Layout({ children }) {
 
-export const siteTitle = 'funciona titulo desde el server'
+  const router = useRouter()
+  const [search, setSearch] = useState('');
 
-export default function Layout({ children, home }) {
-
-  const [search, setSearch] = useState('Iphone');
-
-  console.log(search);
+  useEffect( () => {
+    if( search !== '' ) {
+      router.push(`/items?q=${ search }`);
+    }
+  }, [search]);
 
   return (
     <div>
-
       <Header setSearch={ setSearch } />
-      
-      <main>{children}</main>
-      
-
+      <main> 
+        { children }
+      </main>
     </div>
   )
+
 }
