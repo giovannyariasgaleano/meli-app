@@ -10,7 +10,9 @@ function Items({ products }) {
                           )}
                         </div>;
   
-  const searchNotFound = <div>Lo sentimos, no encontramos productos relacionados con tu busqueda</div>;
+  const searchNotFound =  <div className="finder__search-message">
+                            Lo sentimos, no encontramos productos relacionados con tu busqueda
+                          </div>;
 
   return (
     <Layout>
