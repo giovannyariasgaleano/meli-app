@@ -1,6 +1,5 @@
 import React from 'react'
 import NumberFormat from 'react-number-format';
-import Layout from './Layout';
 
 const ProductDetail = ({ product }) => {
   return (
@@ -28,6 +27,14 @@ const ProductDetail = ({ product }) => {
             </button>
           </div>  
         </div>
+        { product.description!=='' && (
+          <div className="product_detail_box" >
+            <h2>Descripción del producto</h2> 
+            <div className="product__description">
+              <p> { product.description } </p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
