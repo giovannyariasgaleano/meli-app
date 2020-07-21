@@ -4,7 +4,10 @@ import PropTypes from 'prop-types'
 const BreadCrumb = ({ items }) => {
     const style = {
         breadcrumb: {
-            margin: '10px 0',
+            alignItems: 'center',
+            display: 'flex',
+            height: '20px',
+            margin: '10px 0'
         },
         breadcrumbItem:{
             paddingRight: '5px',

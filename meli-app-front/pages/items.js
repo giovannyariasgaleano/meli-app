@@ -1,8 +1,9 @@
+import fetch from 'node-fetch'
+import BreadCrumb from "../components/shared/BreadCrumb"
 import Layout from "../components/Layout"
 import ProductPreview from "../components/ProductPreview"
-import fetch from 'node-fetch'
 
-function Items({ products }) {
+function Items({ products, categories }) {
 
   const productsList =  <div className="base__main-box">
                           { products && products.map(product => 
@@ -16,7 +17,8 @@ function Items({ products }) {
 
   return (
     <Layout>
-      { products? productsList: searchNotFound } 
+      { categories && <BreadCrumb items={ categories } /> }
+      { products? productsList: searchNotFound }
     </Layout>
   )
 }
@@ -24,10 +26,11 @@ function Items({ products }) {
 Items.getInitialProps = async ({ query: {q} }) => {
 
   const res = await fetch(`http://localhost:4000/api/items?q=${ q }`);
-  const {data: { items } } = await res.json()
+  const {data} = await res.json()
 
   return {
-    products: items
+    products: data.items,
+    categories: data.categories
   }
 };
 

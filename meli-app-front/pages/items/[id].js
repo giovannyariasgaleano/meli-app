@@ -1,10 +1,12 @@
 import { getProduct } from '../../lib/products'
 import Layout from '../../components/Layout'
 import ProductDetail from '../../components/ProductDetail';
+import BreadCrumb from "../../components/shared/BreadCrumb"
 
 export default function ItemById({ product }) {
   return (
     <Layout>
+      <BreadCrumb items={[]} />
       {product && <ProductDetail product={ product } />}
     </Layout>
   )
