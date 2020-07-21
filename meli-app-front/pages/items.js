@@ -1,8 +1,9 @@
 import Layout from "../components/Layout"
 import ProductPreview from "../components/ProductPreview"
 import { getProducts } from "../lib/products" 
+import fetch from 'node-fetch'
 
-export default function Item({ products }) {
+function Items({ products }) {
   return (
     <Layout>
       <div className="base__container">
@@ -18,65 +19,14 @@ export default function Item({ products }) {
   )
 }
 
-export async function getStaticProps() {
+Items.getInitialProps = async ({ query: {q} }) => {
 
-  let products = [
-    {
-        "id": "MLA656943182",
-        "title": "Pana Donn - Tela Para Tapicería Con Proceso Antimancha",
-        "price": {
-            "currency": "ARS",
-            "amount": 840,
-            "decimals": 0
-        },
-        "picture": "http://mla-s1-p.mlstatic.com/832199-MLA32780421507_112019-I.jpg",
-        "condition": "new",
-        "free_shipping": false
-    },
-    {
-        "id": "MLA617388307",
-        "title": "Tela Pana Terciopelo Para Tapiceria Y Decor. Ancho 1.45 Mts",
-        "price": {
-            "currency": "ARS",
-            "amount": 786,
-            "decimals": 0
-        },
-        "picture": "http://mla-s2-p.mlstatic.com/958417-MLA40741847435_022020-I.jpg",
-        "condition": "new",
-        "free_shipping": false
-    },
-    {
-        "id": "MLA625814200",
-        "title": "Tela Pana Para Tapiceria Calidad Premium!! P /metro Ofert !!",
-        "price": {
-            "currency": "ARS",
-            "amount": 790,
-            "decimals": 0
-        },
-        "picture": "http://mla-s1-p.mlstatic.com/682021-MLA41552643595_042020-I.jpg",
-        "condition": "new",
-        "free_shipping": false
-    },
-    {
-        "id": "MLA656558611",
-        "title": "Pana Panne - Tela Para Tapicería Con Tratamiento Antimancha",
-        "price": {
-            "currency": "ARS",
-            "amount": 1429,
-            "decimals": 0
-        },
-        "picture": "http://mla-s2-p.mlstatic.com/831995-MLA32780874257_112019-I.jpg",
-        "condition": "new",
-        "free_shipping": false
-    }
-];
-
-console.log(products);
+  const res = await fetch(`http://localhost:4000/api/items?q=${ q }`);
+  const {data: { items } } = await res.json()
 
   return {
-    props:  {
-      products: products
-    }
+    products: items
   }
-}
+};
 
+export default Items
