@@ -1,9 +1,9 @@
-import fetch from 'node-fetch'
 import Head from 'next/head'
 
 import BreadCrumb from "../components/shared/BreadCrumb"
 import Layout from "../components/Layout"
 import ProductPreview from "../components/ProductPreview"
+import { getProducts } from '../lib/products'
 
 function Items({ products, categories }) {
 
@@ -30,13 +30,10 @@ function Items({ products, categories }) {
 }
 
 Items.getInitialProps = async ({ query: {q} }) => {
-
-  const res = await fetch(`http://localhost:4000/api/items?q=${ q }`);
-  const {data} = await res.json()
-
+  const { items, categories } = await getProducts(q);
   return {
-    products: data.items,
-    categories: data.categories
+    products: items,
+    categories: categories
   }
 };
 

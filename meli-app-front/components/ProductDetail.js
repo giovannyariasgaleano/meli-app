@@ -17,7 +17,7 @@ const ProductDetail = ({ product }) => {
             <h1> { product.title } </h1>
           </div>
           <div className='product__price-detail-box'>
-            <NumberFormat displayType={'text'} value={ product.price.amount } thousandSeparator={true} prefix={'$'} className="product__price-detail"/>
+            <NumberFormat displayType={'text'} value={ Math.trunc(product.price.amount) } thousandSeparator={true} prefix={'$'} className="product__price-detail"/>
             <div className='product__price-detail-decimals'>
             { product.price.decimals }
             </div>

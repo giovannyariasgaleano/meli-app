@@ -18,6 +18,7 @@ export default function ItemById({ product, author }) {
             <meta property="og:type" content="product" />
             <meta property="og:description" content={ product.description } />
             <meta property="og:site_name" content="Mercado Libre" />
+            <meta property="og:url" content={`${ process.env.URL_MELI_APP}/items/${ product.id }`}></meta>
           </Head>
           <BreadCrumb items={[]} />
           <ProductDetail product={ product } />
@@ -37,7 +38,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { item, author } = await getProduct(params.id)
+  const { item, author } = await getProduct(params.id);
   return {
     props: {
       product: item,

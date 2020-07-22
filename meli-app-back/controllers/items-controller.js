@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const {response} = require('express');
 const axios = require('axios').default;
 
@@ -8,7 +10,7 @@ const author = {
 
 const getItems = (req, res = response) => {
 
-    axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${ encodeURI(req.query.q) }&limit=4`)
+    axios.get(`${ process.env.URL_API_MERCADO_LIBRE }/sites/MLA/search?q=${ encodeURI(req.query.q) }&limit=4`)
     .then((response) => {
 
         const categories = response.data.filters
@@ -45,10 +47,10 @@ const getItems = (req, res = response) => {
 
 const getItemById = (req, res = response) => {
 
-    axios.get(`https://api.mercadolibre.com/items/${ req.params.id }`)
+    axios.get(`${ process.env.URL_API_MERCADO_LIBRE }/items/${ req.params.id }`)
     .then( response => {
 
-        axios.get(`https://api.mercadolibre.com/items/${ req.params.id }/description`)
+        axios.get(`${ process.env.URL_API_MERCADO_LIBRE }/items/${ req.params.id }/description`)
         .then( ({ data }) => {
 
             console.log(data);
@@ -62,7 +64,7 @@ const getItemById = (req, res = response) => {
                         title: response.data.title,
                         price: {
                             currency: response.data.currency_id, 
-                            amount: data.price, 
+                            amount: response.data.price, 
                             decimals: ( response.data.price.toString().indexOf('.') > 0 )? 
                                         response.data.price.toString().split('.')[1]: '00',
                         },
