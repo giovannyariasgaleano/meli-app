@@ -14,9 +14,9 @@ export default function ItemById({ product, author }) {
             <title> { product.title } </title>
             <meta name="author" content={ `${author.name} ${author.lastname}` } />
             <meta property="og:image" content={ product.picture } />
-            <meta property="og:title" content={ product.title } />
+            <meta property="og:title" content={ product.title.substr(0, 60) } />
             <meta property="og:type" content="product" />
-            <meta property="og:description" content={ product.description } />
+            <meta property="og:description" content={ product.description.substr(0, 200) } />
             <meta property="og:site_name" content="Mercado Libre" />
             <meta property="og:url" content={`${ process.env.URL_MELI_APP}/items/${ product.id }`}></meta>
           </Head>
