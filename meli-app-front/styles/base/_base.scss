@@ -12,11 +12,15 @@ input {
     }
 }
 button {
+    background-color: $primary-background-color;
     cursor: pointer;
     border: 0;
     padding: 0 10px;
     &:focus {
         outline: none;
+    }
+    &:hover {
+        background-color: darken($primary-background-color, 5);
     }
 }
 h1 {
@@ -53,6 +57,9 @@ h1 {
     width: 100%;
     &:focus {
         outline: none;
+    }
+    &:hover {
+        background-color: darken($interaction-primary-color, 10);
     }
 }
 .base_text-secondary {
