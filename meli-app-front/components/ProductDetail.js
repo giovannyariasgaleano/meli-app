@@ -7,7 +7,7 @@ const ProductDetail = ({ product }) => {
     <div className="base__main-box animate__animated animate__fadeIn">
       <div className="product_detail_box" >
         <div className="product__picture animate__animated animate__fadeIn animate__slow" >
-          <img src={ product.picture } alt={ product.title } />
+          <img src={ product.picture } alt={ product.title } className="product__picture" />
         </div>
         <div className="product__info-detail">
           <div className="base_text-secondary">
