@@ -1,3 +1,10 @@
 .breadcrumb {
     color: darken($primary-background-color, 30%);
 }
+
+@media only screen and (max-width: $max-width-mobile) {
+    .breadcrumb {
+        padding: 10px 15px !important;
+        display: none !important;
+    }
+}

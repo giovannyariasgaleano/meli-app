@@ -7,7 +7,7 @@ const BreadCrumb = ({ items }) => {
             alignItems: 'center',
             display: 'flex',
             height: '20px',
-            margin: '10px 0'
+            padding: '10px 0'
         },
         breadcrumbItem:{
             paddingRight: '5px',

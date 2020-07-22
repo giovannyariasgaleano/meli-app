@@ -65,3 +65,11 @@ h1 {
 .base_text-secondary {
     color: darken($primary-background-color, 30%);
 }
+
+@media only screen and (max-width: $max-width-mobile) {
+
+    html, body {
+        background-color: #fff;
+    }
+    
+}
