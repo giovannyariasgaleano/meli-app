@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import NumberFormat from 'react-number-format'
 import Link from 'next/link'
 
@@ -28,6 +29,10 @@ const ProductPreview = ({ product }) => {
             </div>
         </Link>
     )
+}
+
+ProductPreview.propTypes = {
+    product: PropTypes.object.isRequired
 }
 
 export default ProductPreview
