@@ -16,7 +16,7 @@ const ProductPreview = ({ product }) => {
                     <div>
                         <div className='product__price-box'>
                             <div className='product__price'>
-                                <NumberFormat displayType={'text'} value={ product.price.amount } thousandSeparator={true} prefix={'$'}/>
+                                <NumberFormat displayType={'text'} value={ Math.trunc(product.price.amount) } thousandSeparator={true} prefix={'$'}/>
                             </div>    
                             { product.free_shipping && shippingButton }
                         </div>

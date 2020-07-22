@@ -62,7 +62,7 @@ const getItemById = (req, res = response) => {
                         title: response.data.title,
                         price: {
                             currency: response.data.currency_id, 
-                            amount: Math.trunc(response.data.price), 
+                            amount: data.price, 
                             decimals: ( response.data.price.toString().indexOf('.') > 0 )? 
                                         response.data.price.toString().split('.')[1]: '00',
                         },
