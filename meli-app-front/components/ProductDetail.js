@@ -8,7 +8,7 @@ const ProductDetail = ({ product }) => {
       <div className="base__main-box">
         <div className="product_detail_box" >
           <div className="product__picture" >
-            <img src={ product.picture }/>
+            <img src={ product.picture } alt={ product.title } />
           </div>
           <div className="product__info-detail">
             <div className="base_text-secondary">

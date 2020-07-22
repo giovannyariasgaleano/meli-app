@@ -1,4 +1,6 @@
 import fetch from 'node-fetch'
+import Head from 'next/head'
+
 import BreadCrumb from "../components/shared/BreadCrumb"
 import Layout from "../components/Layout"
 import ProductPreview from "../components/ProductPreview"
@@ -17,6 +19,10 @@ function Items({ products, categories }) {
 
   return (
     <Layout>
+      <Head>
+        <title>Mercado Libre</title>
+        <meta name="description" content={ categories }/>
+      </Head>
       { categories && <BreadCrumb items={ categories } /> }
       { products? productsList: searchNotFound }
     </Layout>

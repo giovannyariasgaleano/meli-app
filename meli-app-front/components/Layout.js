@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Header from './Header'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 export default function Layout({ children }) {
 

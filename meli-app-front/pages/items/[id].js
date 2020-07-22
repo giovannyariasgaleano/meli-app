@@ -1,13 +1,29 @@
-import { getProduct } from '../../lib/products'
-import Layout from '../../components/Layout'
-import ProductDetail from '../../components/ProductDetail';
-import BreadCrumb from "../../components/shared/BreadCrumb"
+import Head from 'next/head'
 
-export default function ItemById({ product }) {
+import BreadCrumb from "../../components/shared/BreadCrumb"
+import Layout from '../../components/Layout'
+import ProductDetail from '../../components/ProductDetail'
+import { getProduct } from '../../lib/products'
+
+export default function ItemById({ product, author }) {
   return (
     <Layout>
-      <BreadCrumb items={[]} />
-      {product && <ProductDetail product={ product } />}
+      { product && ( 
+        <>
+          <Head>
+            <title> { product.title } </title>
+            <meta name="author" content={ `${author.name} ${author.lastname}` } />
+            <meta property="og:image" content={ product.picture } />
+            <meta property="og:title" content={ product.title } />
+            <meta property="og:type" content="product" />
+            <meta property="og:description" content={ product.description } />
+            <meta property="og:site_name" content="Mercado Libre" />
+          </Head>
+          <BreadCrumb items={[]} />
+          <ProductDetail product={ product } />
+        </>
+      )}
+      
     </Layout>
   )
 }
@@ -21,10 +37,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { item } = await getProduct(params.id)
+  const { item, author } = await getProduct(params.id)
   return {
     props: {
-      product: item
+      product: item,
+      author
     }
   }
 }
