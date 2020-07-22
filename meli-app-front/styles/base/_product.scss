@@ -64,5 +64,6 @@
     display: flex;
 }
 .product__description {
+    color: darken($primary-background-color, 30%);
     flex: 3;
 }

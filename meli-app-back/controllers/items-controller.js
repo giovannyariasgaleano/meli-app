@@ -48,26 +48,36 @@ const getItemById = (req, res = response) => {
     axios.get(`https://api.mercadolibre.com/items/${ req.params.id }`)
     .then( response => {
 
-        res.json({
-            ok: true,
-            data: {
-                author,
-                item: {
-                    id: response.data.id,
-                    title: response.data.title,
-                    price: {
-                        currency: response.data.currency_id, 
-                        amount: response.data.price, 
-                        decimals: response.initial_quantity,
-                    },
-                    picture: response.data.pictures[0].url, 
-                    condition: response.data.condition, 
-                    free_shipping: response.data.shipping.free_shipping,
-                    sold_quantity: response.data.sold_quantity, 
-                    description: ''
-                }
-            }   
-        });
+        axios.get(`https://api.mercadolibre.com/items/${ req.params.id }/description`)
+        .then( ({ data }) => {
+
+            console.log(data);
+
+            res.json({
+                ok: true,
+                data: {
+                    author,
+                    item: {
+                        id: response.data.id,
+                        title: response.data.title,
+                        price: {
+                            currency: response.data.currency_id, 
+                            amount: Math.trunc(response.data.price), 
+                            decimals: ( response.data.price.toString().indexOf('.') > 0 )? 
+                                        response.data.price.toString().split('.')[1]: '00',
+                        },
+                        picture: response.data.pictures[0].url, 
+                        condition: response.data.condition, 
+                        free_shipping: response.data.shipping.free_shipping,
+                        sold_quantity: response.data.sold_quantity, 
+                        description: data.plain_text
+                    }
+                }   
+            });
+        }).catch(error => {
+            return res.json({ok:false, data:{}});
+        })
+
     })
     .catch(error => {
         return res.json({ok:false, data:{}});

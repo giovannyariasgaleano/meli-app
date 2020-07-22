@@ -17,9 +17,9 @@ const ProductDetail = ({ product }) => {
             <h1> { product.title } </h1>
           </div>
           <div className='product__price-detail-box'>
-            <NumberFormat displayType={'text'} value={ Math.trunc(product.price.amount) } thousandSeparator={true} prefix={'$'} className="product__price-detail"/>
+            <NumberFormat displayType={'text'} value={ product.price.amount } thousandSeparator={true} prefix={'$'} className="product__price-detail"/>
             <div className='product__price-detail-decimals'>
-              00
+            { product.price.decimals }
             </div>
           </div>
           <button className="base__primary-button">
@@ -28,10 +28,13 @@ const ProductDetail = ({ product }) => {
         </div>  
       </div>
       { product.description!=='' && (
-        <div className="product_detail_box" >
+        <div>
           <h2>Descripción del producto</h2> 
-          <div className="product__description">
-            <p> { product.description } </p>
+          <div className="product_detail_box" >
+            <div className="product__description">
+              <p> { product.description } </p>
+            </div>
+            <div className="product__info-detail"></div>
           </div>
         </div>
       )}
