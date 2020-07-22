@@ -15,14 +15,14 @@ export default function Layout({ children }) {
   }, [search]);
 
   return (
-    <div>
+    <>
       <Header setSearch={ setSearch } />
       <div className="base__container">
         <main> 
           { children }
         </main>
       </div>
-    </div>
+    </>
   )
 
 }

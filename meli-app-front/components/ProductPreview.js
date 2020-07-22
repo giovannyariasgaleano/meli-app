@@ -10,7 +10,7 @@ const ProductPreview = ({ product }) => {
 
     return (
         <Link href={`/items/${ product.id }`}>
-            <div className='product__preview-box'>
+            <div className='product__preview-box animate__animated animate__fadeIn'>
                 <div className='product__info'>
                     <div style={ styleImageProduct } className='product__picture_box'></div>
                     <div>
