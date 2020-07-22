@@ -14,14 +14,26 @@ To name the commits [GitmojiADL](https://gitmoji.avaldigitallabs.com/) is used t
 First, run the backend development server:
 
 ```bash
+# select project back
 cd meli-app-back
+
+# Instal Node dependecies
+npm install
+
+# Run server
 npm run dev
 ```
 
 Now, run the frontend development server:
 
 ```bash
+# select project front
 cd meli-app-front
+
+# Instal Node dependecies
+npm install
+
+# Run server
 npm run dev
 ```
 
