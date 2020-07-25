@@ -17,7 +17,7 @@ First, run the backend development server:
 # select project back
 cd meli-app-back
 
-# Instal Node dependecies
+# Install Node dependencies
 npm install
 
 # Run server
@@ -30,7 +30,7 @@ Now, run the frontend development server:
 # select project front
 cd meli-app-front
 
-# Instal Node dependecies
+# Install Node dependencies
 npm install
 
 # Run server
